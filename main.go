@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
+
+var mess = "Hello from the database."
 
 func main() {
-	fmt.Println("Hello from the database.")
+	http.Handle("/", http.FileServer(http.Dir(".")))
+	http.HandleFunc("/c", cu)
+
+	http.ListenAndServe(":80", nil)
+}
+
+func cu(w http.ResponseWriter, q *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+	fmt.Println(nickIPs[ip], "has joined the chat room!")
+	buffer.Execute(w, q)
 }
