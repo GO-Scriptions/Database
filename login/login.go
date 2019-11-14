@@ -20,13 +20,13 @@ func CheckLogin(log string) (bool, bool) {
 	var logSuccess, authority, au bool
 	logSuccess, authority = false, false
 	fmt.Println("checking login")
-	fmt.Println(len(os.Args))
-	if len(os.Args) == 4 {
+
+	if len(os.Args) == 5 {
 		fmt.Println("correct number of arguments")
 		var job, name, pass, un, pw string
-		job = os.Args[2]
-		name = os.Args[3]
-		pass = os.Args[4]
+		job = os.Args[3]
+		name = os.Args[4]
+		pass = os.Args[5]
 
 		dockerstart := exec.Command("docker", "start", "pgcontainer")
 		dockerstart.Run()
