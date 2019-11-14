@@ -37,12 +37,12 @@ func CheckLogin(log string) (bool, bool) {
 		db := connect()
 		if job == "d" {
 			fmt.Println("checking doctor table")
-			rows, _ := db.Query("SELECT Doctor_ID FROM Doctors")
+			rows, _ := db.Query("SELECT Doc_Username FROM Doctors")
 			for rows.Next() {
 				rows.Scan(&un)
 				if name == un {
 					fmt.Println("found username")
-					row := db.QueryRow("SELECT Doc_Password FROM Doctors WHERE Doctor_ID = $1", name)
+					row := db.QueryRow("SELECT Doc_Password FROM Doctors WHERE Doc_Username = $1", name)
 					row.Scan(&pw)
 					if pass == pw {
 						fmt.Println("found password")

@@ -1,17 +1,16 @@
 CREATE TABLE Doctors (
     First_Name varchar,
     Last_Name varchar,
-    Doctor_ID varchar primary key,
-	Doc_Password varchar NOT NULL
+    Doc_Username varchar primary key,
+    Doc_Password varchar
     );
 
 CREATE TABLE Pharmacists (
     First_Name varchar,
     Last_Name varchar,
-    Employee_ID varchar primary key,
+    Username varchar primary key,
     Pharm_Password varchar NOT NULL,
-    Is_Manager boolean
-	);
+    Is_Manager varchar);
 
 CREATE TABLE Inventory (
     Drug_Name varchar primary key,
@@ -22,7 +21,7 @@ CREATE TABLE Inventory (
 
 CREATE TABLE Prescriptions (
     Presc_ID varchar,
-    Doc_Name varchar,
+    Doc_Prescribing varchar,
     Drug_Name varchar,
     Amount int,
     Patient_First varchar,
@@ -43,8 +42,14 @@ CREATE TABLE Prescription_History (
     Date_Prescribed date,
 );
 
-INSERT INTO Doctors values ('Young', 'Farwa', '123456', 'narwall');
-INSERT INTO Pharmacists values ('Bruce', 'Banner', '789101', 'hulksmash','true');
-INSERT INTO Inventory values ('Ibuprofen', '005500', '1.25', 'Meditech');
-INSERT INTO Prescriptions values ('459056', 'Young Farwa', 'Amoxicillin', '500', 'Tony', 'Stark', '31.29', 'filled', '2018-10-31');
-INSERT INTO Prescription_History values ('459055', 'Young Farwa', 'Amoxicillin', '500', 'Tony', 'Stark', '31.29', 'picked-up', '2018-10-31');
+INSERT INTO Doctors (First_Name, Last_Name, Doc_Username, Doc_Password) 
+VALUES ('Young', 'Farwa' ,'drFarwa', 'thefarwacist');
+
+INSERT INTO Pharmacists 
+VALUES ('Bruce', 'Banner', 'MrGreen', 'hulksmash','true');
+
+INSERT INTO Inventory 
+VALUES ('Ibuprofen', '5500', '1.25', 'Meditech');
+
+INSERT INTO Prescriptions 
+VALUES ('459056', 'Young Farwa', 'Amoxicillin', '500', 'Tony', 'Stark', '3.25', '2019 -10-31');
