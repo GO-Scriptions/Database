@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+
+	_ "github.com/lib/pq" //Needed but VS Code says I don't.
+	//Then it wonders why everything implodes. Hmmm...
 )
 
 const (
