@@ -13,7 +13,7 @@ func main() {
 
 	if *log != "" {
 		check, aut := login.CheckLogin(*log)
-		if check == true {
+		if check {
 			fmt.Println("Pass")
 			fmt.Println(check, aut)
 		} else {

@@ -19,8 +19,10 @@ const (
 func CheckLogin(log string) (bool, bool) {
 	var logSuccess, authority, au bool
 	logSuccess, authority = false, false
+	fmt.Println("checking login")
 
 	if len(os.Args) == 4 {
+		fmt.Println("correct number of arguments")
 		var job, name, pass, un, pw string
 		job = os.Args[2]
 		name = os.Args[3]
@@ -31,13 +33,16 @@ func CheckLogin(log string) (bool, bool) {
 
 		db := connect()
 		if job == "d" {
+			fmt.Println("checking doctor table")
 			rows, _ := db.Query("SELECT Doctor_ID FROM Doctors")
 			for rows.Next() {
 				rows.Scan(&un)
 				if name == un {
+					fmt.Println("found username")
 					row := db.QueryRow("SELECT Doc_Password FROM Doctors WHERE Doctor_ID = $1", name)
 					row.Scan(&pw)
 					if pass == pw {
+						fmt.Println("found password")
 						logSuccess = true
 					}
 				}
@@ -73,6 +78,6 @@ func connect() *sql.DB {
 	if err != nil {
 		panic(err)
 	}
-	//fmt.Println("successfully connected to database")
+	fmt.Println("successfully connected to database")
 	return db
 }
