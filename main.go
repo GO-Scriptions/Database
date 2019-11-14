@@ -8,11 +8,11 @@ import (
 )
 
 func main() {
-	log := flag.String("log", "", "Login type. Use the flags -d, -p, or -e to login.")
+	log := flag.String("log", "", "Login type. Use the flags d or p login.")
 	flag.Parse()
 
 	if log != nil {
-		check := login.Check(*log)
+		check := login.CheckLogin(*log)
 		if check == true {
 			fmt.Println("Pass")
 		} else {
