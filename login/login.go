@@ -20,7 +20,7 @@ func CheckLogin(log string) (bool, bool) {
 	var logSuccess, authority, au bool
 	logSuccess, authority = false, false
 	fmt.Println("checking login")
-
+	fmt.Println(len(os.Args))
 	if len(os.Args) == 4 {
 		fmt.Println("correct number of arguments")
 		var job, name, pass, un, pw string
