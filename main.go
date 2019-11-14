@@ -1,21 +1,24 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-	"net/http"
+
+	"github.com/GO-Scriptions/Database/login"
 )
 
-var mess = "Hello from the database."
-
 func main() {
-	http.Handle("/", http.FileServer(http.Dir(".")))
-	http.HandleFunc("/c", cu)
+	log := flag.String("log", "", "Login type. Use the flags -d, -p, or -e to login.")
+	flag.Parse()
 
-	http.ListenAndServe(":80", nil)
-}
-
-func cu(w http.ResponseWriter, q *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	fmt.Println(nickIPs[ip], "has joined the chat room!")
-	buffer.Execute(w, q)
+	if log != nil {
+		check := login.Check(*log)
+		if check == true {
+			fmt.Println("Pass")
+		} else {
+			fmt.Println("Fail")
+		}
+	} else {
+		fmt.Println("No Flags Passed")
+	}
 }
