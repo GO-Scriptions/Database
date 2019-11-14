@@ -1,7 +1,7 @@
 CREATE TABLE Doctors (
     First_Name varchar,
     Last_Name varchar,
-    Doctor_ID varchar primary key
+    Doctor_ID varchar primary key,
 	Doc_Password varchar NOT NULL
     );
 
