@@ -19,14 +19,15 @@ CREATE TABLE Inventory (
 
 CREATE TABLE Prescriptions (
     Presc_ID varchar,
-    Doc_Prescribing varchar,
+    Doc_Name varchar,
     Drug_Name varchar,
     Amount int,
     Patient_First varchar,
     Patient_Last varchar,
     Cost decimal,
     Presc_Status varchar,
-    Date_Prescribed date);
+    Date_Prescribed date
+);
 
 CREATE TABLE Prescription_History (
     Presc_ID varchar,
