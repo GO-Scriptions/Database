@@ -41,7 +41,7 @@ func WriteP() string {
 		db := Connect()
 		db.Exec("INSERT INTO Prescriptions VALUES ($1, $2, $3, $4, $5, $6, $7, 'unfilled', $8);",
 			id, doct, drug, quan, frst, last, prce, date)
-
+		status = "success"
 	} else {
 		fmt.Println("Not enough arguments")
 	}
