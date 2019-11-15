@@ -1,8 +1,8 @@
 CREATE TABLE Doctors (
-    DocUsername varchar primary key,
-    FirstName varchar,
-    LastName varchar,
-    DocPassword varchar);
+    Doc_Username varchar primary key,
+    First_Name varchar,
+    Last_Name varchar,
+    Doc_Password varchar);
 
 CREATE TABLE Pharmacists (
     First_Name varchar,
@@ -39,7 +39,7 @@ CREATE TABLE Prescription_History (
     Cost decimal,
     Date_Prescribed date);
 
-INSERT INTO Doctors (docUsername, firstName, lastName, docPassword) 
+INSERT INTO Doctors
 values ('drFarwa', 'Young', 'Farwa', 'thefarwacist');
 
 INSERT INTO Pharmacists 
