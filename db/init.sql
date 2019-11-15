@@ -45,6 +45,6 @@ CREATE TABLE Prescription_History (
 
 INSERT INTO Doctors values ('Farwa', 'Young', '123456', 'narwall');
 INSERT INTO Pharmacists values ('Bruce', 'Banner', '789101', 'hulksmash','true');
-INSERT INTO Inventory values ('Ibuprofen', '005500', '1.25', 'Meditech');
-INSERT INTO Prescriptions values ('459056', 'Young Farwa', 'Amoxicillin', '500', 'Tony', 'Stark', 31.29, 'filled', '2018-10-31');
+INSERT INTO Inventory values ('Ibuprofen', 005500, 1.25, 'Meditech');
+INSERT INTO Prescriptions values ('459056', 'Young Farwa', 'Amoxicillin', 500, 'Tony', 'Stark', 31.29, 'filled', '2018-10-31');
 INSERT INTO Prescription_History values ('459055', 'Young Farwa', 'Amoxicillin', 500, 'Tony', 'Stark', 31.29, '2018-10-31');
