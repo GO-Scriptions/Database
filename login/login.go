@@ -51,13 +51,16 @@ func CheckLogin(log string) (bool, bool) {
                                 }
                         }
                 } else if job == "p" {
+			fmt.Println("checking pharmacist table")
                         rows, _ := db.Query("SELECT Employee_ID FROM Pharmacists")
                         for rows.Next() {
                                 rows.Scan(&un)
                                 if id == un {
+					fmt.Println("found employee id")
                                         row := db.QueryRow("SELECT Pharm_Password FROM Pharmacists WHERE Employee_ID = $1", id)
                                         row.Scan(&pw)
                                         if pass == pw {
+						fmt.Println("found password")
                                                 logSuccess = true
                                                 aut := db.QueryRow("SELECT Is_Manager FROM Pharmacists WHERE Employee_ID = $1", id)
                                                 aut.Scan(&au)
