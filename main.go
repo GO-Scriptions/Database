@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 
-	_ "github.com/GO-Scriptions/Database/doc" //This comments keeps this here
 	"github.com/GO-Scriptions/Database/login"
 )
 
