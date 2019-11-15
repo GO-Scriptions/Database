@@ -15,10 +15,8 @@ func main() {
 	if *log != "" {
 		check, aut := login.CheckLogin(*log)
 		if check {
-			fmt.Println("Pass")
 			fmt.Println(check, aut)
 		} else {
-			fmt.Println("Fail")
 			fmt.Println(check, aut)
 		}
 	} else {
