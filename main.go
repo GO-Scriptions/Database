@@ -22,7 +22,7 @@ func main() {
 		}
 	} else if *doc != "" {
 		// Doc flag was passed, see the doc folder for more details.
-		doctool := doc.ToolNav(*doc)
+		doctool := login.ToolNav()
 		fmt.Println(doctool)
 	} else {
 		fmt.Println("No Flags Passed")
