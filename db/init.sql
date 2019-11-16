@@ -46,10 +46,10 @@ INSERT INTO Pharmacists
 values ('Bruce', 'Banner', 'MrGreen', 'hulksmash','true');
 
 INSERT INTO Inventory 
-values ('Ibuprofen', '5500', '1.25', 'Meditech');
+values ('Ibuprofen', 5500, 1.25, 'Meditech');
 
 INSERT INTO Prescriptions 
-values ('459056', 'drFarwa', 'Amoxicillin', '500', 'Tony', 'Stark', '31.25', 'filled', '2018-10-31');
+values ('459056', 'drFarwa', 'Amoxicillin', 500, 'Tony', 'Stark', 31.25, 'filled', '2018-10-31');
 
 INSERT INTO Prescription_History 
-values ('459056', 'drFarwa', 'Amoxicillin', '500', 'Tony', 'Stark', '31.25', '2018-10-31');
+values ('459056', 'drFarwa', 'Amoxicillin', 500, 'Tony', 'Stark', 31.25, '2018-10-31');
