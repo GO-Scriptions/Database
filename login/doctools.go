@@ -4,24 +4,26 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"os/exec"
 	"time"
 )
 
 // ToolNav function for navigating the doctor tools
-func ToolNav() string {
-	var doctool, r string
+func ToolNav() {
+	var doctool string
 	doctool = os.Args[2]
 
 	if doctool == "wp" {
-		r = WriteP()
+		WriteP()
+	} else if doctool == "vp" {
+		ViewP()
 	} else {
-		r = ViewP()
+		fmt.Println("Invalid argument tag")
 	}
-	return r
 }
 
 // WriteP for writing prescriptions
-func WriteP() string {
+func WriteP() {
 	var status string
 	status = "fail"
 
@@ -38,15 +40,15 @@ func WriteP() string {
 		date := currentTime.Format("2006-01-02")
 		prce := NewPrice()
 
+		dockerstart := exec.Command("docker", "start", "pgcontainer")
+		dockerstart.Run()
 		db := Connect()
 		db.Exec("INSERT INTO Prescriptions VALUES ($1, $2, $3, $4, $5, $6, $7, 'unfilled', $8);",
 			id, doct, drug, quan, frst, last, prce, date)
 		status = "success"
-	} else {
-		fmt.Println("Not enough arguments")
 	}
 
-	return status
+	fmt.Println(status)
 }
 
 // NewPrice generates a random price of a drug
@@ -80,8 +82,25 @@ func UseSeed(min int, max int) int {
 }
 
 // ViewP func for Viewing prescriptions
-func ViewP() string {
-	var r string
-	r = "View Prescriptons"
-	return r
+func ViewP() {
+	var user, prid, docn, drug, patf, patl, stat, date string
+	var cost float64
+	var quan int
+
+	if len(os.Args) == 4 {
+		user = os.Args[3]
+
+		//we start up docker
+		dockerstart := exec.Command("docker", "start", "pgcontainer")
+		dockerstart.Run()
+		db := Connect()
+
+		rows, _ := db.Query("SELECT * FROM Prescriptions WHERE Doc_Name = $1", user)
+		for rows.Next() {
+			rows.Scan(&prid, &docn, &drug, &quan, &patf, &patl, &cost, &stat, &date)
+			fmt.Println(prid, docn, drug, quan, patf, patl, cost, stat, date)
+		}
+	} else {
+		fmt.Println("Invalid arguments")
+	}
 }
