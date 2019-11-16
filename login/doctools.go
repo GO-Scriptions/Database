@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 	"os/exec"
+	"strconv"
 	"time"
 )
 
@@ -35,8 +36,8 @@ func WriteP() {
 		quan := os.Args[6]
 		drug := os.Args[7]
 
-		id := NewID()
 		currentTime := time.Now()
+		id := NewID()
 		date := currentTime.Format("2006-01-02")
 		prce := NewPrice()
 
@@ -59,18 +60,17 @@ func NewPrice() float64 {
 	return inDollars
 }
 
-// NewID generates a new six-diget ID number
+// NewID generates a new six-digit ID number
 func NewID() string {
 	var newNum, sDig string
 	var dig int
 	newNum = ""
 
-	for i := 0; i >= 5; i++ {
+	for i := 0; i <= 5; i++ {
 		dig = UseSeed(0, 9)
-		sDig = string(dig)
+		sDig = strconv.Itoa(dig)
 		newNum = newNum + sDig
 	}
-
 	return newNum
 }
 

@@ -26,7 +26,7 @@ CREATE TABLE Prescriptions (
     Patient_Last varchar,
     Cost decimal,
     Presc_Status varchar,
-    Date_Prescribed date
+    Date_Prescribed varchar
 );
 
 CREATE TABLE Prescription_History (
@@ -37,7 +37,7 @@ CREATE TABLE Prescription_History (
     Patient_First varchar,
     Patient_Last varchar,
     Cost decimal,
-    Date_Prescribed date);
+    Date_Prescribed varchar);
 
 INSERT INTO Doctors
 values ('drFarwa', 'Young', 'Farwa', 'thefarwacist');
