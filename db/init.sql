@@ -54,5 +54,17 @@ values ('Ibuprofen', 5500, 1.25, 'Meditech');
 INSERT INTO Prescriptions 
 values ('459056', 'drFarwa', 'Amoxicillin', 500, 'Tony', 'Stark', 31.25, 'filled', '2018-10-31');
 
+INSERT INTO Prescriptions 
+values ('318275', 'drFarwa', 'Synthroid', 500, 'Scarlet', 'witch', 31.25, 'filled', '2018-3-14');
+
+INSERT INTO Prescriptions 
+values ('563527', 'drStrange', 'Nexium', 500, 'Thor', 'Odinson', 31.25, 'filled', '2018-12-24');
+
 INSERT INTO Prescription_History 
 values ('459056', 'drFarwa', 'Amoxicillin', 500, 'Tony', 'Stark', 31.25, '2018-10-31');
+
+INSERT INTO Prescription_History
+values ('318275', 'drFarwa', 'Synthroid', 500, 'Scarlet', 'witch', 31.25, '2018-3-14');
+
+INSERT INTO Prescription_History
+values ('563527', 'drStrange', 'Nexium', 500, 'Thor', 'Odinson', 31.25, '2018-12-24');
