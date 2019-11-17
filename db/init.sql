@@ -42,6 +42,9 @@ CREATE TABLE Prescription_History (
 INSERT INTO Doctors
 values ('drFarwa', 'Young', 'Farwa', 'thefarwacist');
 
+INSERT INTO Doctors
+values ('drStrange', 'Strange', 'stephen', 'timeStone');
+
 INSERT INTO Pharmacists 
 values ('Bruce', 'Banner', 'MrGreen', 'hulksmash','true');
 
